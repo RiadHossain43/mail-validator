@@ -1,6 +1,7 @@
 const Bull = require("bull");
 const validationprocess = require("./validation.process");
 const { logger } = require("../../../common/helper");
+logger.info(process.env.REDIS_URL)
 const queue = new Bull("email-validation", {
   redis: process.env.REDIS_URL
 });
