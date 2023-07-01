@@ -1,5 +1,5 @@
 const ORIGINS = {
-  production: ["https://alice.imssystems.tech"],
+  production: ["https://freetoolsapp.com"],
   development: [
     "https://development-alice.imssystems.tech",
     "http://localhost:3000",
