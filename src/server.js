@@ -38,10 +38,10 @@ app.use("/api/v1/lab", require("./ai/routes/lab"));
 app.use("/api/v1/accounts", require("./accounts/routes"));
 app.use(userDeserialization);
 app.use("/api/v1/email-manager", require("./emailvalidations/routes"));
-// app.use("/api/v1/chatheads", require("./chatheads/routes"));
-// app.use("/api/v1/chats", require("./chats/routes"));
-// app.use("/api/v1/conversation", require("./ai/routes"));
-// app.use("/api/v1/payments", require("./payments/routes"));
+app.use("/api/v1/chatheads", require("./chatheads/routes"));
+app.use("/api/v1/chats", require("./chats/routes"));
+app.use("/api/v1/conversation", require("./ai/routes"));
+app.use("/api/v1/payments", require("./payments/routes"));
 app.use("/api/v1/users", require("./users/routes"));
 app.use("/api/v1/file-manager", require("./fileManager/routes"));
 
