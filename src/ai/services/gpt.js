@@ -3,25 +3,20 @@ const { openai } = require("../../.config/gpt");
 class PromptEngineering {
   constructor() {}
   async streamResponse(payload) {
-    return openai.createChatCompletion(
-      {
-        model: "gpt-3.5-turbo",
-        messages: [
-          ...payload.conversation,
-          ...payload.systemInstructions,
-          { role: "user", content: `${payload.prompt}` },
-        ],
-        max_tokens: 2550,
-        stream: true,
-        temperature: 0.2,
-      },
-      {
-        responseType: "stream",
-      }
-    );
+    return openai.chat.completions.create({
+      model: "gpt-3.5-turbo",
+      messages: [
+        ...payload.conversation,
+        ...payload.systemInstructions,
+        { role: "user", content: `${payload.prompt}` },
+      ],
+      max_tokens: 2550,
+      temperature: 0.2,
+      stream: true,
+    });
   }
   async normalResponse(payload) {
-    return openai.createChatCompletion({
+    return openai.chat.completions.create({
       model: "gpt-3.5-turbo",
       messages: [
         ...payload.conversation,
