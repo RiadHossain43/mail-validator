@@ -1,6 +1,7 @@
+const { logger } = require("../../common/helper");
 const { PromptEngineering } = require("../services");
 exports.generateConversationResponse = async (req, res, next) => {
-  console.log("trying to generate response");
+  logger.info("trying to generate response");
   try {
     const promptEngineering = new PromptEngineering();
     const aliceResponseStream = await promptEngineering.streamResponse(
@@ -8,13 +9,12 @@ exports.generateConversationResponse = async (req, res, next) => {
     );
     console.log("response generated ");
     for await (const part of aliceResponseStream) {
-      console.log("streamig now ");
-
+      logger.info("streamig now ");
       res.write(part.choices[0]?.delta?.content || "");
     }
+    logger.info("stream ended");
     res.end();
   } catch (error) {
-    console.log("response generation faled: ", error.message);
     next(error);
   }
 };
