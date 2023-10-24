@@ -1,3 +1,5 @@
+const { logger } = require("../helper");
+
 const ORIGINS = {
   production: [
     "https://freetoolsapp.com",
@@ -27,6 +29,7 @@ exports.cors = (req, res, next) => {
   const allowedOrigin = ORIGINS[process.env.NODE_ENV].find(
     (origin) => origin === req.headers.origin
   );
+  logger.info("allowed origin: " + allowedOrigin);
   if (allowedOrigin)
     res.setHeader("Access-Control-Allow-Origin", allowedOrigin);
   res.setHeader("Access-Control-Allow-Credentials", true);
