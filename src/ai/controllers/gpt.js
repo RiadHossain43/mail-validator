@@ -9,7 +9,6 @@ exports.generateConversationResponse = async (req, res, next) => {
     );
     console.log("response generated ");
     for await (const part of aliceResponseStream) {
-      // logger.info("streamig now ");
       res.write(part.choices[0]?.delta?.content || "");
     }
     logger.info("stream ended");
