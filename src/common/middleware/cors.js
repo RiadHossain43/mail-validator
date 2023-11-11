@@ -4,10 +4,12 @@ const ORIGINS = {
   production: [
     "https://freetoolsapp.com",
     "https://productive-gpt-client.vercel.app",
+    "https://aianalysis.freetoolsapp.com",
   ],
   development: [
     "https://development-alice.imssystems.tech",
     "https://productive-gpt-client.vercel.app",
+    "https://aianalysis.freetoolsapp.com",
     "http://localhost:3000",
   ],
 };
